@@ -11,7 +11,8 @@ def get_api_key_by_email(user):
         raise ValueError("add SECRET_EMAIL_APIKEY in env")
     response = requests.post(
         f"{url}/auth/api-key",
-        json={"email": user.email, "secret": secret},
+        headers={"Authorization": f"Bearer {secret}"},
+        json={"email": user.email},
     )
     response.raise_for_status()
     api_key = response.json()["api_key"]
