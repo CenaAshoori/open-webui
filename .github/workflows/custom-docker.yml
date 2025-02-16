@@ -1,8 +1,6 @@
 name: Docker Image CI for GHCR
 on:
-  push:
-    branches:
-      - main  # Adjust the branch as needed
+  push
 jobs:
   build_and_publish:
     runs-on: ubuntu-latest
